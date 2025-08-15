@@ -1,0 +1,875 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "InventoryManagementSystem",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "localhost://"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "Users"
+    },
+    {
+      "name": "Category"
+    },
+    {
+      "name": "Suppliers"
+    },
+    {
+      "name": "Product"
+    },
+    {
+      "name": "Transaction"
+    }
+  ],
+  "paths": {
+    "/050/api/auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "register",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "admin mannu",
+                  "email": "madmin1234@gmail.com",
+                  "phonenumber": "+94123456",
+                  "password": "admin",
+                  "role": "ADMIN"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/050/api/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "madmin1234@gmail.com",
+                  "password": "admin"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/users/all": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "getAllUsers",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/users/1": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "getCurrentLoggedInUser",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/users/delete/5": {
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "deleteUser",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/users/transactions/1": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "getUserTransactions",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/users/update/4": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "UpdateUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "id": 4,
+                  "name": "nimal",
+                  "email": "nimal@gmail.com",
+                  "phoneNumber": "+944820475",
+                  "password": "nimal",
+                  "role": "MANAGER"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/categories/add": {
+      "post": {
+        "tags": [
+          "Category"
+        ],
+        "summary": "createCategory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Food"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/categories/all": {
+      "get": {
+        "tags": [
+          "Category"
+        ],
+        "summary": "getAllCategories",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/suppliers/add": {
+      "post": {
+        "tags": [
+          "Suppliers"
+        ],
+        "summary": "addSupplier",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Dambulla Supplier",
+                  "contactInfo": "+9445845531",
+                  "address": "34/1 red road,SriLanka"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/suppliers/all": {
+      "get": {
+        "tags": [
+          "Suppliers"
+        ],
+        "summary": "getAllSuppliers",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/suppliers/4": {
+      "get": {
+        "tags": [
+          "Suppliers"
+        ],
+        "summary": "getSupplierById",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/suppliers/update/4": {
+      "put": {
+        "tags": [
+          "Suppliers"
+        ],
+        "summary": "updateSupplier",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Jaffna Supplier",
+                  "contactInfo": "+9445834215",
+                  "address": "no3,garden road,SriLanka"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/suppliers/delete/5": {
+      "delete": {
+        "tags": [
+          "Suppliers"
+        ],
+        "summary": "deleteSupplier",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/products/add": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "saveProduct",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/products_add_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/products/update": {
+      "put": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "updateProduct",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/products_update_body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/products/all": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "getAllProducts",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/products/3": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "getProductByID",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/products/": {
+      "delete": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "deleteProduct",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/products/search": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "summary": "searchProduct",
+        "parameters": [
+          {
+            "name": "input",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "fan"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/transactions/purchase": {
+      "post": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "purchaseStock",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "productId": 7,
+                  "supplierId": 5,
+                  "quantity": 10,
+                  "description": "i am purchasing from dambulla",
+                  "note": "to refil my stock"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/transactions/sell": {
+      "post": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "sellProduct",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "productId": 6,
+                  "quantity": 2,
+                  "description": "i am selling 2 product at a cheaper price",
+                  "note": "selling 2 products"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/transactions/return": {
+      "post": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "returnToSupplier",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "productId": 7,
+                  "supplierId": 5,
+                  "quantity": 5,
+                  "description": "i am returning 5 back",
+                  "note": "returning 5 mangoes"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/transactions/all": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "getAllTransactions",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/transactions/3": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "getTransactionById",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/transactions/by-month-year": {
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "searchByMonthAndYear",
+        "parameters": [
+          {
+            "name": "month",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": "7"
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "example": "2025"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/050/api/transactions/update": {
+      "put": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "updateTransaction",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "transactionId": 2,
+                  "status": "PENDING"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "products_update_body": {
+        "type": "object",
+        "properties": {
+          "imageFile": {
+            "type": "string",
+            "format": "binary"
+          },
+          "name": {
+            "type": "string",
+            "example": "Traditional Panbag"
+          },
+          "sku": {
+            "type": "integer",
+            "example": 1234567823431055
+          },
+          "price": {
+            "type": "integer",
+            "example": 25
+          },
+          "stockQuantity": {
+            "type": "integer",
+            "example": 21
+          },
+          "categoryId": {
+            "type": "integer",
+            "example": 3
+          },
+          "description": {
+            "type": "string",
+            "example": "SriLankan traditional bag"
+          },
+          "productId": {
+            "type": "integer",
+            "example": 6
+          }
+        }
+      },
+      "products_add_body": {
+        "type": "object",
+        "properties": {
+          "imageFile": {
+            "type": "string",
+            "format": "binary"
+          },
+          "name": {
+            "type": "string",
+            "example": "cloth size 20"
+          },
+          "sku": {
+            "type": "integer",
+            "example": 123456789101112
+          },
+          "price": {
+            "type": "integer",
+            "example": 10
+          },
+          "stockQuantity": {
+            "type": "integer",
+            "example": 2
+          },
+          "categoryId": {
+            "type": "integer",
+            "example": 5
+          },
+          "description": {
+            "type": "string",
+            "example": "Kids Collection"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "noauthAuth": {
+        "type": "http",
+        "scheme": "noauth"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
